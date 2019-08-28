@@ -19,4 +19,3 @@ int main()
     cout << frexp(s, n) << endl;
 }
 
-{

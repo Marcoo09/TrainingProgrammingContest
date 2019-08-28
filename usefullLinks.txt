@@ -1,3 +1,18 @@
 Vectors C++;
 
 https://www.geeksforgeeks.org/vector-in-cpp-stl/
+
+Statement continue : Permite saltar al final de un for para la siguiente iteración.
+
+#define _CRT_SECURE_NO_WARNINGS Utilizado al principio del programa, permite utilizar la función scanf sin warning de unsafe.
+
+Función putchar(int) se usa para escribir un carácter en la pantalla. No necesita el segundo argumento, pues usa siempre la salida estándar que esté predefinida.
+
+freopen("input.txt", "r", stdin); Lee el input a partir de un archivo
+freopen("output.txt", "w", stdout); Escribe al archive especificado
+
+Encontrar el máximo subarray de un array. En O(n), kadannes algorithm (max_sofar and max_ending here) in each step.
+Encontrar el maximo subarray de tamaño k de un arrau. En O(N), rolling window. (Calculo el primer array de tamaño k, y voy sumando la siguiente posicion y restando la primera, comparando contra la mayor suma hasta el momento, hasta llegar al otro extremo del array.)
+
+2 147 483 647 maximo valor de int.
+4294967295 maximo valor de unsigned int

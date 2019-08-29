@@ -1,3 +1,4 @@
+/* 
 //Author Santiago Topolansky
 //Problem Street Checkers Kickstart 2019 Round E
 
@@ -87,5 +88,74 @@ int main() {
 		}
 		cout << "Case #" << contT << ": " << contInt << endl;
 	}
+	return 0;
+}*/
+
+//After looking at the google's analysis, i re-wrote the algorithm for the first small test case and it was correctly admited. 
+
+//Author Santiago Topolansky
+//Problem Street Checkers Kickstart 2019 Round E. Looking at Solution
+
+#include <iostream>
+#include <stdio.h>
+#include <math.h>
+#include <string.h>
+#include <time.h>
+#include <stdlib.h>
+#include <string>
+#include <bitset>
+#include <vector>
+#include <set>
+#include <map>
+#include <queue>
+#include <algorithm>
+#include <sstream>
+#include <stack>
+#include <iomanip>
+#include <assert.h>
+#include <unordered_map>
+#include <cassert>
+using namespace std;
+
+bool interesting(int x) {
+	int oddDivs = 0;
+	int evenDivs = 0;
+	for (int i = 1; i <= sqrt(x); i++) {
+		if (x%i == 0) { //If i divides x, x/i and i are divisors
+			if ((x / i) % 2 == 0) {//Clasificate x/i and i in even and odd
+				evenDivs++;
+			}
+			else { oddDivs++; }
+
+			if (x / i != i) {// Is x/i == i? Square root divisor. 
+				if (i % 2 == 0) {
+					evenDivs++;
+				}
+				else { oddDivs++; }
+			}
+		}
+	}
+	return (abs(evenDivs - oddDivs) <= 2);
+}
+
+int main() {
+	int T;
+	cin >> T;
+	int* arr = new int[1000001];//Array of interesting cases (acum)
+	arr[0] = 0;
+
+	for (int x = 1; x < 1000001; x++) { // If interesting, ++ to previous position, else: previous position
+		if (interesting(x)) { arr[x] = 1 + arr[x - 1]; }
+		else { arr[x] = arr[x - 1]; }
+	}
+
+	for (int i = 1; i < T + 1; i++) {
+		int L, R;
+		cin >> L >> R;
+		cout << "Case #" << i << ": " << (arr[R] - arr[L - 1]) << endl;
+
+	}
+
+
 	return 0;
 }

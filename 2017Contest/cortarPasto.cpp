@@ -19,15 +19,90 @@ using namespace std;
 #define pb push_back
 #define mp make_pair
 typedef pair<int, int> pii;
+typedef pair<bool, bool> piiBool;
 typedef long long ll;
 typedef double ld;
 typedef vector<int> vi;
 #include <iostream>
 
+pii getMinValueIndex(int **matrix, int length, int width)
+{
+    int min = matrix[0][0];
+    pii returnedValue;
+    returnedValue.first = 0;
+    returnedValue.second = 0;
+
+    for (int i = 0; i < length; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            if ((matrix[i][j] < min && matrix[i][j] != 0) || min == 0)
+            {
+                returnedValue.first = i;
+                returnedValue.second = j;
+            }
+        }
+    }
+
+    return returnedValue;
+}
+
+piiBool checkIfAllInRowOrColumnAreEqual(int i, int j, int numberToCompare, int **matrix, int length, int width)
+{
+    piiBool returnedValue;
+    returnedValue.first = true;
+    returnedValue.second = true;
+    for (int p = 0; p < width; p++)
+    {
+        if (matrix[i][p] != numberToCompare && matrix[i][p] != 0)
+        {
+            returnedValue.first = false;
+        }
+    }
+    for (int s = 0; s < length; s++)
+    {
+        if (matrix[s][j] != numberToCompare && matrix[s][j] != 0)
+        {
+            returnedValue.second = false;
+        }
+    }
+    return returnedValue;
+}
+
 bool IsAValidCourt(int **matrix, int length, int width)
 {
-    bool returnedValue = true;
-    return returnedValue;
+    int quantityOfNodes = length * width;
+    while (quantityOfNodes > 0)
+    {
+        pii minValue = getMinValueIndex(matrix, length, width);
+        int iIndex = minValue.first;
+        int jIndex = minValue.second;
+        piiBool checkInAxis = checkIfAllInRowOrColumnAreEqual(iIndex, jIndex, matrix[iIndex][jIndex], matrix, length, width);
+        if (checkInAxis.first || checkInAxis.second)
+        {
+            if (checkInAxis.first)
+            {
+                for (int j = 0; j < width; j++)
+                {
+                    matrix[iIndex][j] = 0;
+                    quantityOfNodes--;
+                }
+            }
+            if (checkInAxis.second)
+            {
+                for (int i = 0; i < length; i++)
+                {
+                    matrix[i][jIndex] = 0;
+                    quantityOfNodes--;
+                }
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main()
@@ -69,8 +144,5 @@ int main()
         }
     }
 
-    // // DON'T FORGET TO DELETE THE MATRIX!
-    // for(int i = 0; i < N; ++i)
-    //     delete matrix[i];
     return 0;
 }

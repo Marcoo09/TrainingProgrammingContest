@@ -24,18 +24,27 @@ typedef double ld;
 typedef vector<int> vi;
 #include <iostream>
 
-int getLessCuttedBricks(vector<vector<string>> wall)
+int getLessCuttedBricks(vector<vector<int>> wall)
 {
     int size = wall.size();
-    for (int i = 0; i < size; i++)
+    int colSize = wall[0].size();
+    int minCuttedBricks = -1;
+    for (int j = 0; j < colSize; j++)
     {
-        int colSize = wall[i].size();
-        for (int j = 0; j < colSize; j++)
+        int counter = 0;
+        for (int i = 0; i < size; i++)
         {
-            cout << wall[i][j] << " ";
+            if (wall[i][j] == 1)
+            {
+                counter++;
+            }
+        }
+        if ((counter < minCuttedBricks) || minCuttedBricks == -1)
+        {
+            minCuttedBricks = counter;
         }
     }
-    return 3;
+    return minCuttedBricks;
 }
 
 int main()
@@ -49,13 +58,26 @@ int main()
         int quantityOfRows; //(1<=f<=10.000)
         //The quantity of bricks of a wall not exceds 20000
         cin >> quantityOfRows;
-        vector<vector<string>> wall;
+        vector<vector<int>> wall;
         for (int j = 0; j < quantityOfRows; j++)
         {
-            vector<string> myVector;
+            vector<int> myVector;
             string line;
             getline(cin, line);
-            myVector.pb(line);
+            for (int i = 0; i < line.length(); i++)
+            {
+                char character = line[i];
+                if (character != ' ')
+                {
+                    int brickWidth = character - 48;
+                    while (brickWidth > 0)
+                    {
+                        myVector.pb(1);
+                        brickWidth--;
+                    }
+                    myVector.pb(0);
+                }
+            }
             wall.pb(myVector);
         }
         cout << "Caso " << i + 1 << ": " << getLessCuttedBricks(wall) << endl;

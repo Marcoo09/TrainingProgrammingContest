@@ -1,18 +1,18 @@
-Vectors C++;
+﻿Vectors C++;
 
 https://www.geeksforgeeks.org/vector-in-cpp-stl/
 
 Statement continue : Permite saltar al final de un for para la siguiente iteraci�n.
 
-#define _CRT_SECURE_NO_WARNINGS Utilizado al principio del programa, permite utilizar la funci�n scanf sin warning de unsafe.
+#define _CRT_SECURE_NO_WARNINGS Utilizado al principio del programa, permite utilizar la funcion scanf sin warning de unsafe.
 
-Funci�n putchar(int) se usa para escribir un car�cter en la pantalla. No necesita el segundo argumento, pues usa siempre la salida est�ndar que est� predefinida.
+Funcion putchar(int) se usa para escribir un caracter en la pantalla. No necesita el segundo argumento, pues usa siempre la salida estandar que este predefinida.
 
 freopen("input.txt", "r", stdin); Lee el input a partir de un archivo
 freopen("output.txt", "w", stdout); Escribe al archive especificado
 
-Encontrar el m�ximo subarray de un array. En O(n), kadannes algorithm (max_sofar and max_ending here) in each step.
-Encontrar el maximo subarray de tama�o k de un array. En O(N), rolling window. (Calculo el primer array de tama�o k, y voy sumando la siguiente posicion y restando la primera, comparando contra la mayor suma hasta el momento, hasta llegar al otro extremo del array.)
+Encontrar el maximo subarray de un array. En O(n), kadannes algorithm (max_sofar and max_ending here) in each step.
+Encontrar el maximo subarray de tamano k de un array. En O(N), rolling window. (Calculo el primer array de tamano k, y voy sumando la siguiente posicion y restando la primera, comparando contra la mayor suma hasta el momento, hasta llegar al otro extremo del array.)
 
 2 147 483 647 maximo valor de int.
 4294967295 maximo valor de unsigned int
@@ -55,7 +55,21 @@ int testToInt = test - 48; // Da 6;
 
 //Obtain a complete line
 getLine(cin, <string variable>, <separator>);
+getLine(cin, <string var>); (Lee hasta el salto de linea)
+Se acompana con la clase istringstream:
 
+	istringstream is2(<string var>);
+	while (is2 >> n) {
+	// Hacer algo con la variable n
+	}
+
+
+// Using getLine after cin
+Para evitar que getLine() lea una fila vacia luego de haber usado el cin, ejecutar una vez:
+
+cin.ignore();
+
+Esto permite ignorar el salto de linea prexistente
 //Tips and tricks 
 
 https://www.geeksforgeeks.org/tips-and-tricks-for-competitive-programmers-set-1-for-beginners/
@@ -64,7 +78,6 @@ https://www.geeksforgeeks.org/tips-and-tricks-for-competitive-programmers-set-1-
 
 https://www.geeksforgeeks.org/top-algorithms-and-data-structures-for-competitive-programming/
 
-No llerlo todo, sino que ver algoritmos que posiblemen necesitemos (buscar, ordenar, etc), quedarnos con los de mejor orden e imrpimirlos
-
+No llerlo todo, sino que ver algoritmos que posiblemente necesitemos (buscar, ordenar, etc), quedarnos con los de mejor orden e imrpimirlos
 
 

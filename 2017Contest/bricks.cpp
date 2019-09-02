@@ -29,6 +29,15 @@ int getLessCuttedBricks(vector<vector<int>> wall)
     int size = wall.size();
     int colSize = wall[0].size();
     int minCuttedBricks = -1;
+    // for (int i = 0; i < size; i++)
+    // {
+    //     vector<int> currentRow = wall[i];
+    //     for (int j = 0; j < currentRow.size(); j++)
+    //     {
+    //         cout << currentRow[j] << " ";
+    //     }
+    //     cout << endl;
+    // }
     for (int j = 0; j < colSize; j++)
     {
         int counter = 0;
@@ -39,9 +48,10 @@ int getLessCuttedBricks(vector<vector<int>> wall)
                 counter++;
             }
         }
-        if ((counter < minCuttedBricks) || minCuttedBricks == -1)
+        int cuttedBricks = size - counter;
+        if ((cuttedBricks < minCuttedBricks) || minCuttedBricks == -1)
         {
-            minCuttedBricks = counter;
+            minCuttedBricks = cuttedBricks;
         }
     }
     return minCuttedBricks;
@@ -64,6 +74,7 @@ int main()
             vector<int> myVector;
             string line;
             getline(cin, line);
+            int nodesAdded = 0;
             for (int i = 0; i < line.length(); i++)
             {
                 char character = line[i];
@@ -72,11 +83,19 @@ int main()
                     int brickWidth = character - 48;
                     while (brickWidth > 0)
                     {
-                        myVector.pb(1);
+                        nodesAdded++;
+                        myVector.pb(0);
                         brickWidth--;
                     }
-                    myVector.pb(0);
+                    myVector.pb(1);
+                    nodesAdded++;
                 }
+            }
+            int maxNodesByRow = 20000 / quantityOfRows;
+            while (nodesAdded < maxNodesByRow)
+            {
+                myVector.pb(0);
+                nodesAdded++;
             }
             wall.pb(myVector);
         }

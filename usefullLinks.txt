@@ -2,17 +2,69 @@ Vectors C++;
 
 https://www.geeksforgeeks.org/vector-in-cpp-stl/
 
-Statement continue : Permite saltar al final de un for para la siguiente iteración.
+Statement continue : Permite saltar al final de un for para la siguiente iteraciï¿½n.
 
-#define _CRT_SECURE_NO_WARNINGS Utilizado al principio del programa, permite utilizar la función scanf sin warning de unsafe.
+#define _CRT_SECURE_NO_WARNINGS Utilizado al principio del programa, permite utilizar la funciï¿½n scanf sin warning de unsafe.
 
-Función putchar(int) se usa para escribir un carácter en la pantalla. No necesita el segundo argumento, pues usa siempre la salida estándar que esté predefinida.
+Funciï¿½n putchar(int) se usa para escribir un carï¿½cter en la pantalla. No necesita el segundo argumento, pues usa siempre la salida estï¿½ndar que estï¿½ predefinida.
 
 freopen("input.txt", "r", stdin); Lee el input a partir de un archivo
 freopen("output.txt", "w", stdout); Escribe al archive especificado
 
-Encontrar el máximo subarray de un array. En O(n), kadannes algorithm (max_sofar and max_ending here) in each step.
-Encontrar el maximo subarray de tamaño k de un arrau. En O(N), rolling window. (Calculo el primer array de tamaño k, y voy sumando la siguiente posicion y restando la primera, comparando contra la mayor suma hasta el momento, hasta llegar al otro extremo del array.)
+Encontrar el mï¿½ximo subarray de un array. En O(n), kadannes algorithm (max_sofar and max_ending here) in each step.
+Encontrar el maximo subarray de tamaï¿½o k de un array. En O(N), rolling window. (Calculo el primer array de tamaï¿½o k, y voy sumando la siguiente posicion y restando la primera, comparando contra la mayor suma hasta el momento, hasta llegar al otro extremo del array.)
 
 2 147 483 647 maximo valor de int.
 4294967295 maximo valor de unsigned int
+
+https://www.bigocheatsheet.com/ //Algoritmos y complejidad segÃºn estructura
+
+//Default sheet to include in each cpp fail:
+
+#include <iostream>
+#include <stdio.h>
+#include <math.h>
+#include <string.h>
+#include <time.h>
+#include <stdlib.h>
+#include <string>
+#include <bitset>
+#include <vector>
+#include <set>
+#include <map>
+#include <queue>
+#include <algorithm>
+#include <sstream>
+#include <stack>
+#include <iomanip>
+#include <assert.h>
+using namespace std;
+#define pb push_back
+#define mp make_pair
+typedef pair<int, int> pii;
+typedef pair<bool, bool> piiBool;
+typedef long long ll;
+typedef double ld;
+typedef vector<int> vi;
+#include <iostream>
+
+//Casting the char a int ejemplo:
+
+char test = '6';
+int testToInt = test - 48; // Da 6;
+
+//Obtain a complete line
+getLine(cin, <string variable>, <separator>);
+
+//Tips and tricks 
+
+https://www.geeksforgeeks.org/tips-and-tricks-for-competitive-programmers-set-1-for-beginners/
+
+//Nice to have:
+
+https://www.geeksforgeeks.org/top-algorithms-and-data-structures-for-competitive-programming/
+
+No llerlo todo, sino que ver algoritmos que posiblemen necesitemos (buscar, ordenar, etc), quedarnos con los de mejor orden e imrpimirlos
+
+
+

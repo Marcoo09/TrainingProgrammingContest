@@ -80,4 +80,6 @@ https://www.geeksforgeeks.org/top-algorithms-and-data-structures-for-competitive
 
 No llerlo todo, sino que ver algoritmos que posiblemente necesitemos (buscar, ordenar, etc), quedarnos con los de mejor orden e imrpimirlos
 
-
+para compilar con g++: 'g++ -o NameHere.exe NameHere.cpp'
+para ejecutar casos de prueba: 'NameHere < TestCases.txt > TestResults.txt'
+para comparar dos archivos txt windows: 'fc 1000.out.txt 1000.xp.txt'

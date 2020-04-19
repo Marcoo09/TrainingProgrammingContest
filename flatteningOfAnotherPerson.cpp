@@ -24,7 +24,7 @@ using namespace std;
 typedef long long ll;
 typedef long double ld;
 typedef unsigned int uint;
-typedef unsigned long long ull;
+typedef long double ull;
 typedef pair<ll, ll> pll;
 typedef pair<int, int> pii;
 typedef pair<char, char> pcc;
